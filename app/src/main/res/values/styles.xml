@@ -1,0 +1,33 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:windowBackground">@color/white</item>
+    </style>
+
+    <style name="ActionBar">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@color/basic_ui_action_bar_bg</item>
+        <item name="ab_autoImmersion">false</item>
+        <item name="ab_statusBarColor">@color/main</item>
+        <item name="ab_statusBarVisible">false</item>
+    </style>
+
+    <style name="ActionBar.Common">
+        <item name="abc_titleTextColor">@color/basic_ui_action_bar_text</item>
+        <item name="abc_leftIconColor">@color/basic_ui_action_bar_icon</item>
+        <item name="abc_leftIconPadding">13dp</item>
+        <item name="abc_leftIconMarginLeft">3dp</item>
+        <item name="abc_leftTextColor">@color/basic_ui_action_bar_text</item>
+        <item name="abc_rightIconColor">@color/basic_ui_action_bar_icon</item>
+        <item name="abc_rightIconPadding">13dp</item>
+        <item name="abc_rightIconMarginRight">3dp</item>
+        <item name="abc_rightTextColor">@color/basic_ui_action_bar_text</item>
+    </style>
+
+</resources>

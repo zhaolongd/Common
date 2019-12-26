@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="font_actionbar_title">18sp</dimen>
+    <dimen name="font_btn">16sp</dimen>
+    <dimen name="font_title">16dp</dimen>
+    <dimen name="font_big">16sp</dimen>
+    <dimen name="font_content">14sp</dimen>
+    <dimen name="font_small">13sp</dimen>
+    <dimen name="font_least">12sp</dimen>
+    <dimen name="font_des">12sp</dimen>
+    <dimen name="font_large">30sp</dimen>
+    <dimen name="font_11sp">11sp</dimen>
+    <dimen name="font_15sp">15sp</dimen>
+    <dimen name="font_16sp">16sp</dimen>
+    <dimen name="font_17sp">17sp</dimen>
+    <dimen name="font_18sp">18sp</dimen>
+    <dimen name="font_19sp">19sp</dimen>
+    <dimen name="font_20sp">20sp</dimen>
+    <dimen name="font_21sp">21sp</dimen>
+    <dimen name="font_22sp">22sp</dimen>
+
+</resources>

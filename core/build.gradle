@@ -1,0 +1,75 @@
+apply plugin: 'com.android.library'
+apply plugin: 'com.jakewharton.butterknife'
+
+android {
+    compileSdkVersion 28
+    defaultConfig {
+        minSdkVersion 19
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        javaCompileOptions {
+            annotationProcessorOptions { includeCompileClasspath = true }
+        }
+        multiDexEnabled true
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'com.android.support:appcompat-v7:28.0.0'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    api('com.rxjava.rxhttp:rxhttp:1.3.2') { //xxx为RxHttp最新版本
+        exclude group: "com.squareup.okhttp3"
+    }
+    api 'com.squareup.okhttp3:okhttp:3.12.6' //此版本最低要求 API 9
+    annotationProcessor 'com.rxjava.rxhttp:rxhttp-compiler:1.3.2' //注解处理器，生成RxHttp类
+    api 'com.rxjava.rxlife:rxlife:1.1.0'  //页面销毁，关闭请求，非必须
+    api 'com.rxjava.rxhttp:converter-jackson:1.3.2'
+    api 'com.rxjava.rxhttp:converter-fastjson:1.3.2'
+    api 'com.rxjava.rxhttp:converter-protobuf:1.3.2'
+    api 'com.rxjava.rxhttp:converter-simplexml:1.3.2'
+    api "com.android.support:multidex:1.0.3"
+    //Loading
+    api 'com.wang.avi:library:2.1.3'
+    api 'com.github.goweii:PercentImageView:1.0.2'
+    api 'com.makeramen:roundedimageview:2.3.0'
+    api 'com.github.mmin18:realtimeblurview:1.1.2'
+    api 'com.jakewharton:butterknife:8.4.0'
+    api 'com.jakewharton:butterknife-compiler:8.4.0'
+    api 'com.android.support:recyclerview-v7:28.0.0'
+    api 'com.github.bumptech.glide:glide:4.8.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.8.0'
+    api 'com.scwang.smartrefresh:SmartRefreshLayout:1.1.0-alpha-14'
+    api 'com.scwang.smartrefresh:SmartRefreshHeader:1.1.0-alpha-14'
+    api 'com.android.support:appcompat-v7:28.0.0'
+    api 'com.android.support:support-v4:28.0.0'
+    implementation 'org.jetbrains:annotations-java5:15.0'
+    api 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.46'
+    api 'com.github.bumptech.glide:glide:4.8.0'
+    api 'com.github.bumptech.glide:compiler:4.8.0'
+    api 'com.github.bumptech.glide:okhttp3-integration:4.8.0'
+    api 'com.youth.banner:banner:1.4.10'
+    api 'com.github.hackware1993:MagicIndicator:1.6.0'
+    api 'com.google.android:flexbox:1.0.0'
+    //agentWeb
+    api 'com.just.agentweb:agentweb:4.1.2' // (必选)
+    api 'com.just.agentweb:filechooser:4.1.2'// (可选)
+    api 'com.download.library:Downloader:4.1.2'// (可选)
+    api 'org.greenrobot:eventbus:3.1.1'
+    api 'com.github.goweii:ActionBarEx:3.2.4'
+}
