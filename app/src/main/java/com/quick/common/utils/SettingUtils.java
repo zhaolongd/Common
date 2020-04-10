@@ -1,13 +1,8 @@
 package com.quick.common.utils;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
 import com.quick.core.utils.SPUtils;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by zhaolong.

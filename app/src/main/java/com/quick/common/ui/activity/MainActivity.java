@@ -1,10 +1,9 @@
 package com.quick.common.ui.activity;
 
 import android.os.Bundle;
-import android.support.v4.content.ContextCompat;
-import android.support.v4.view.ViewPager;
+import androidx.core.content.ContextCompat;
+import androidx.viewpager.widget.ViewPager;
 import android.view.View;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.github.mmin18.widget.RealtimeBlurView;
 import com.quick.common.R;
@@ -30,34 +29,23 @@ public class MainActivity extends BaseActivity implements ViewPager.OnPageChange
     PercentImageView ivBbHome;
     @BindView(R.id.tv_bb_home)
     TextView tvBbHome;
-    @BindView(R.id.ll_bb_home)
-    LinearLayout llBbHome;
     @BindView(R.id.iv_bb_knowledge)
     PercentImageView ivBbKnowledge;
     @BindView(R.id.tv_bb_knowledge)
     TextView tvBbKnowledge;
-    @BindView(R.id.ll_bb_knowledge)
-    LinearLayout llBbKnowledge;
     @BindView(R.id.iv_bb_wechat)
     PercentImageView ivBbWechat;
     @BindView(R.id.tv_bb_wechat)
     TextView tvBbWechat;
-    @BindView(R.id.ll_bb_wechat)
-    LinearLayout llBbWechat;
     @BindView(R.id.iv_bb_project)
     PercentImageView ivBbProject;
     @BindView(R.id.tv_bb_project)
     TextView tvBbProject;
-    @BindView(R.id.ll_bb_project)
-    LinearLayout llBbProject;
     @BindView(R.id.iv_bb_square)
     PercentImageView ivBbSquare;
     @BindView(R.id.tv_bb_square)
     TextView tvBbSquare;
-    @BindView(R.id.ll_bb_square)
-    LinearLayout llBbSquare;
-    @BindView(R.id.ll_bb)
-    LinearLayout llBb;
+
 
     private FixedFragmentPagerAdapter mPagerAdapter;
 

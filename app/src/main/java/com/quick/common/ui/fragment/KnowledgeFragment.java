@@ -1,10 +1,10 @@
 package com.quick.common.ui.fragment;
 
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -48,7 +48,7 @@ public class KnowledgeFragment extends MvpFragment<KnowledgePresenter> implement
     private void init() {
         rv.setLayoutManager(new LinearLayoutManager(getContext()));
         mAdapter = new KnowledgeAdapter();
-        mAdapter.setEnableLoadMore(false);
+        mAdapter.getLoadMoreModule().setEnableLoadMore(false);
         mAdapter.setOnItemClickListener(new KnowledgeAdapter.OnItemClickListener() {
             @Override
             public void onClick(ChapterBean bean, int pos) {

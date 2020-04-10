@@ -2,16 +2,18 @@ package com.quick.common.ui.fragment;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.content.ContextCompat;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.content.ContextCompat;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import com.chad.library.adapter.base.BaseQuickAdapter;
+import com.chad.library.adapter.base.listener.OnItemClickListener;
+import com.chad.library.adapter.base.listener.OnLoadMoreListener;
 import com.quick.common.R;
 import com.quick.common.app.MvpFragment;
 import com.quick.common.bean.home.BannerBean;
@@ -20,6 +22,7 @@ import com.quick.common.bean.main.ArticleListBean;
 import com.quick.common.mvp.home.HomePresenter;
 import com.quick.common.mvp.home.HomeView;
 import com.quick.common.ui.activity.WebActivity;
+import com.quick.common.ui.activity.home.CommunityActivity;
 import com.quick.common.ui.activity.home.SearchActivity;
 import com.quick.common.ui.adapter.ArticleAdapter;
 import com.quick.common.utils.ImageLoader;
@@ -75,6 +78,12 @@ public class HomeFragment extends MvpFragment<HomePresenter> implements HomeView
                 SearchActivity.start(getContext());
             }
         });
+        abc.setOnLeftIconClickListener(new OnActionBarChildClickListener() {
+            @Override
+            public void onClick(View v) {
+                CommunityActivity.start(getContext());
+            }
+        });
         mSmartRefreshUtils = SmartRefreshUtils.with(srl);
         mSmartRefreshUtils.pureScrollMode();
         mSmartRefreshUtils.setRefreshListener(new SmartRefreshUtils.RefreshListener() {
@@ -87,14 +96,14 @@ public class HomeFragment extends MvpFragment<HomePresenter> implements HomeView
         rv.addItemDecoration(new RecyclerViewDivider(getContext(), LinearLayoutManager.HORIZONTAL, 2, ContextCompat.getColor(getContext(), R.color.line)));
         rv.setLayoutManager(new LinearLayoutManager(getContext()));
         mAdapter = new ArticleAdapter();
-        mAdapter.setEnableLoadMore(false);
-        mAdapter.setOnLoadMoreListener(new BaseQuickAdapter.RequestLoadMoreListener() {
+        mAdapter.getLoadMoreModule().setEnableLoadMore(true);
+        mAdapter.getLoadMoreModule().setOnLoadMoreListener(new OnLoadMoreListener() {
             @Override
-            public void onLoadMoreRequested() {
+            public void onLoadMore() {
                 mvpPresenter.getArticleList(currPage);
             }
-        }, rv);
-        mAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
+        });
+        mAdapter.setOnItemClickListener(new OnItemClickListener() {
             @Override
             public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
                 ArticleBean item = mAdapter.getItem(position);
@@ -139,13 +148,14 @@ public class HomeFragment extends MvpFragment<HomePresenter> implements HomeView
             mAdapter.setNewData(data.getDatas());
         } else {
             mAdapter.addData(data.getDatas());
-            mAdapter.loadMoreComplete();
+            mAdapter.getLoadMoreModule().loadMoreComplete();
+
         }
         if (data.isOver()) {
-            mAdapter.loadMoreEnd();
+            mAdapter.getLoadMoreModule().loadMoreEnd();
         } else {
-            if (!mAdapter.isLoadMoreEnable()) {
-                mAdapter.setEnableLoadMore(true);
+            if (!mAdapter.getLoadMoreModule().isEnableLoadMore()) {
+                mAdapter.getLoadMoreModule().setEnableLoadMore(true);
             }
         }
         mSmartRefreshUtils.success();

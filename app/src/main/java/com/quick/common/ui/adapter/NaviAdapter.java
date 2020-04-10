@@ -1,11 +1,13 @@
 package com.quick.common.ui.adapter;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TextView;
+
 import com.chad.library.adapter.base.BaseQuickAdapter;
-import com.chad.library.adapter.base.BaseViewHolder;
+import com.chad.library.adapter.base.module.LoadMoreModule;
+import com.chad.library.adapter.base.viewholder.BaseViewHolder;
 import com.google.android.flexbox.FlexboxLayout;
 import com.quick.common.R;
 import com.quick.common.bean.main.ArticleBean;
@@ -18,7 +20,7 @@ import java.util.Queue;
  * Description: 导航
  * Date: 2019/12/23 0023 14:23
  */
-public class NaviAdapter extends BaseQuickAdapter<NaviBean, BaseViewHolder> {
+public class NaviAdapter extends BaseQuickAdapter<NaviBean, BaseViewHolder> implements LoadMoreModule {
     private LayoutInflater mInflater = null;
     private Queue<TextView> mFlexItemTextViewCaches = new LinkedList<>();
     private OnItemClickListener mOnItemClickListener = null;

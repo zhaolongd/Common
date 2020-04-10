@@ -1,6 +1,6 @@
 package com.quick.core.glide.progress;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import android.text.TextUtils;
 
 import com.quick.core.utils.LogUtils;

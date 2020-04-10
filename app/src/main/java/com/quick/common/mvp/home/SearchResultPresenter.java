@@ -1,7 +1,7 @@
 package com.quick.common.mvp.home;
 
 import android.app.Activity;
-import android.arch.lifecycle.LifecycleOwner;
+import androidx.lifecycle.LifecycleOwner;
 
 import com.quick.common.bean.main.ArticleListBean;
 import com.quick.common.config.HttpConfig;

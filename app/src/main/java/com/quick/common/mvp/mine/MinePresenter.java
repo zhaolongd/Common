@@ -1,7 +1,7 @@
 package com.quick.common.mvp.mine;
 
 import android.app.Activity;
-import android.arch.lifecycle.LifecycleOwner;
+import androidx.lifecycle.LifecycleOwner;
 
 import com.quick.common.mvp.base.BasePresenter;
 

@@ -1,6 +1,6 @@
 package com.quick.core.glide.progress;
 
-import android.support.annotation.WorkerThread;
+import androidx.annotation.WorkerThread;
 
 /**
  * 描述：

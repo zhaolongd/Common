@@ -1,9 +1,9 @@
 package com.quick.common.utils;
 
 import android.content.Context;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.view.ViewPager;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentPagerAdapter;
+import androidx.viewpager.widget.ViewPager;
 import android.text.Html;
 import android.util.TypedValue;
 import android.view.View;
@@ -85,6 +85,7 @@ public class MagicIndicatorUtils {
         final int padding16 = (int) DisplayInfoUtils.getInstance().dp2px(8);
         navigator.setLeftPadding(padding16);
         navigator.setRightPadding(padding16);
+
         navigator.setAdapter(new CommonNavigatorAdapter() {
             @Override
             public int getCount() {
@@ -93,6 +94,7 @@ public class MagicIndicatorUtils {
 
             @Override
             public IPagerTitleView getTitleView(Context context, final int index) {
+
                 SimplePagerTitleView simplePagerTitleView = new SimplePagerTitleView(context);
                 simplePagerTitleView.setText(Html.fromHtml(adapter.getPageTitle(index).toString()));
                 simplePagerTitleView.setTextSize(TypedValue.COMPLEX_UNIT_PX, ResUtils.getDimens(R.dimen.font_15sp));

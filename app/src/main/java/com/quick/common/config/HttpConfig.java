@@ -20,4 +20,6 @@ public interface HttpConfig {
     String PROJECT_CHAPTER = BASE_URL + "/project/tree/json"; //项目分类
     String PROJECT_ARTICLE_LIST = BASE_URL + "/project/list/%d/json"; //获取某个分类下项目列表数据
     String USER_ARTICLE_LIST = BASE_URL + "/user_article/list/%d/json";
+    //开眼视频api
+    String KAIYAN_RECOMMEND = "http://baobab.kaiyanapp.com/api/v7/community/tab/rec"; //开眼视频推荐
 }

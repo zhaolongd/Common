@@ -16,10 +16,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.activity.WebActivity"
-            android:screenOrientation="portrait" />
-        <activity android:name=".ui.activity.home.SearchActivity"
-            android:screenOrientation="portrait" />
+        <activity android:name=".ui.activity.WebActivity" />
+        <activity android:name=".ui.activity.home.SearchActivity"/>
+        <activity android:name=".ui.activity.home.CommunityActivity"/>
     </application>
 
 </manifest>

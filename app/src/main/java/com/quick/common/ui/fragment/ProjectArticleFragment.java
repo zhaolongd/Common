@@ -1,15 +1,17 @@
 package com.quick.common.ui.fragment;
 
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.content.ContextCompat;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.content.ContextCompat;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import com.chad.library.adapter.base.BaseQuickAdapter;
+import com.chad.library.adapter.base.listener.OnItemClickListener;
+import com.chad.library.adapter.base.listener.OnLoadMoreListener;
 import com.quick.common.R;
 import com.quick.common.app.MvpFragment;
 import com.quick.common.bean.main.ArticleBean;
@@ -72,15 +74,15 @@ public class ProjectArticleFragment extends MvpFragment<ProjectArticlePresenter>
         rv.setLayoutManager(new LinearLayoutManager(getContext()));
         rv.addItemDecoration(new RecyclerViewDivider(getContext(), LinearLayoutManager.HORIZONTAL,2, ContextCompat.getColor(getContext(),R.color.line)));
         mAdapter = new ArticleAdapter();
-        mAdapter.setEnableLoadMore(false);
-        mAdapter.setOnLoadMoreListener(new BaseQuickAdapter.RequestLoadMoreListener() {
+        mAdapter.getLoadMoreModule().setEnableLoadMore(false);
+        mAdapter.getLoadMoreModule().setOnLoadMoreListener(new OnLoadMoreListener() {
             @Override
-            public void onLoadMoreRequested() {
+            public void onLoadMore() {
                 currPage++;
                 getProjectArticleList(false);
             }
-        }, rv);
-        mAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
+        });
+        mAdapter.setOnItemClickListener(new OnItemClickListener() {
             @Override
             public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
                 ArticleBean item = mAdapter.getItem(position);
@@ -127,13 +129,13 @@ public class ProjectArticleFragment extends MvpFragment<ProjectArticlePresenter>
         currPage = data.getCurPage() + PAGE_START;
         if (data.getCurPage() == 1) {
             mAdapter.setNewData(data.getDatas());
-            mAdapter.setEnableLoadMore(true);
+            mAdapter.getLoadMoreModule().setEnableLoadMore(true);
         } else {
             mAdapter.addData(data.getDatas());
-            mAdapter.loadMoreComplete();
+            mAdapter.getLoadMoreModule().loadMoreComplete();
         }
         if (data.isOver()) {
-            mAdapter.loadMoreEnd();
+            mAdapter.getLoadMoreModule().loadMoreEnd();
         }
         mSmartRefreshUtils.success();
     }

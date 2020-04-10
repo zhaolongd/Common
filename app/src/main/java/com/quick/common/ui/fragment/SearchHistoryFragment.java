@@ -1,9 +1,9 @@
 package com.quick.common.ui.fragment;
 
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v7.widget.RecyclerView;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,7 +14,10 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
-import com.chad.library.adapter.base.BaseViewHolder;
+import com.chad.library.adapter.base.listener.OnItemChildClickListener;
+import com.chad.library.adapter.base.listener.OnItemClickListener;
+import com.chad.library.adapter.base.listener.OnItemLongClickListener;
+import com.chad.library.adapter.base.viewholder.BaseViewHolder;
 import com.google.android.flexbox.FlexboxLayoutManager;
 import com.quick.common.R;
 import com.quick.common.app.MvpFragment;
@@ -77,7 +80,7 @@ public class SearchHistoryFragment extends MvpFragment<SearchHistoryPresenter> i
                 helper.setText(R.id.tv_key, item.getName());
             }
         };
-        mHotAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
+        mHotAdapter.setOnItemClickListener(new OnItemClickListener() {
             @Override
             public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
                 HotKeyBean item = mHotAdapter.getItem(position);
@@ -92,7 +95,7 @@ public class SearchHistoryFragment extends MvpFragment<SearchHistoryPresenter> i
             @Override
             protected void convert(BaseViewHolder helper, String item) {
                 helper.setText(R.id.tv_key, item);
-                helper.addOnClickListener(R.id.iv_remove);
+//                helper.addOnClickListener(R.id.iv_remove);
                 ImageView iv_remove = helper.getView(R.id.iv_remove);
                 if (!mRemoveModeChanging) {
                     helper.setVisible(R.id.iv_remove, mRemoveMode);
@@ -147,14 +150,14 @@ public class SearchHistoryFragment extends MvpFragment<SearchHistoryPresenter> i
                 }
             }
         };
-        mHistoryAdapter.setOnItemLongClickListener(new BaseQuickAdapter.OnItemLongClickListener() {
+        mHistoryAdapter.setOnItemLongClickListener(new OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(BaseQuickAdapter adapter, View view, int position) {
                 changeRemoveMode(!mRemoveMode);
                 return true;
             }
         });
-        mHistoryAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
+        mHistoryAdapter.setOnItemClickListener(new OnItemClickListener() {
             @Override
             public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
                 if (!mRemoveMode) {
@@ -163,7 +166,7 @@ public class SearchHistoryFragment extends MvpFragment<SearchHistoryPresenter> i
                 }
             }
         });
-        mHistoryAdapter.setOnItemChildClickListener(new BaseQuickAdapter.OnItemChildClickListener() {
+        mHistoryAdapter.setOnItemChildClickListener(new OnItemChildClickListener() {
             @Override
             public void onItemChildClick(BaseQuickAdapter adapter, View view, int position) {
                 mHistoryAdapter.remove(position);

@@ -1,7 +1,6 @@
 package com.quick.common.app;
 
 import android.content.Context;
-
 import com.quick.common.R;
 import com.quick.core.base.CoreApp;
 import com.quick.core.rxhttp.RxHttpManager;

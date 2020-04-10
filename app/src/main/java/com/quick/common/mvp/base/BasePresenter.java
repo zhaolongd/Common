@@ -1,9 +1,8 @@
 package com.quick.common.mvp.base;
 
 import android.app.Activity;
-import android.arch.lifecycle.LifecycleOwner;
+import androidx.lifecycle.LifecycleOwner;
 import android.widget.Toast;
-
 import com.quick.common.config.HttpConfig;
 import com.quick.common.config.KeyConfig;
 import com.rxjava.rxlife.BaseScope;

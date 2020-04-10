@@ -5,8 +5,10 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+
 import com.chad.library.adapter.base.BaseQuickAdapter;
-import com.chad.library.adapter.base.BaseViewHolder;
+import com.chad.library.adapter.base.module.LoadMoreModule;
+import com.chad.library.adapter.base.viewholder.BaseViewHolder;
 import com.quick.common.R;
 import com.quick.common.bean.main.ArticleBean;
 import com.quick.common.ui.activity.WebActivity;
@@ -19,7 +21,7 @@ import com.quick.core.utils.StringUtils;
  * Description:
  * Date: 2019/12/12 0012 14:29
  */
-public class ArticleAdapter extends BaseQuickAdapter<ArticleBean, BaseViewHolder> {
+public class ArticleAdapter extends BaseQuickAdapter<ArticleBean, BaseViewHolder> implements LoadMoreModule {
 
 
     public ArticleAdapter() {
