@@ -1,8 +1,11 @@
 package com.quick.common.app;
 
 import android.content.Context;
+
+import com.alibaba.android.arouter.launcher.ARouter;
 import com.quick.common.R;
 import com.quick.core.base.CoreApp;
+import com.quick.core.common.Config;
 import com.quick.core.rxhttp.RxHttpManager;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 import com.scwang.smartrefresh.layout.api.DefaultRefreshFooterCreator;
@@ -24,6 +27,11 @@ public class CommonApp extends CoreApp {
     public void onCreate() {
         super.onCreate();
         RxHttpManager.init();
+        if (Config.DEBUG) {
+            ARouter.openLog(); // 开启日志
+            ARouter.openDebug(); // 使用InstantRun的时候，需要打开该开关，上线之后关闭，否则有安全风险
+        }
+        ARouter.init(getApp());
     }
 
     //static 代码段可以防止内存泄露

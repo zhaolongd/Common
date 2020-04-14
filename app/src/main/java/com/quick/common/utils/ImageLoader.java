@@ -1,6 +1,11 @@
 package com.quick.common.utils;
 
+import android.text.TextUtils;
 import android.widget.ImageView;
+
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.resource.bitmap.CircleCrop;
+import com.bumptech.glide.request.RequestOptions;
 import com.quick.common.R;
 import com.quick.core.glide.GlideHelper;
 
@@ -39,5 +44,15 @@ public class ImageLoader {
                 .cache(true)
                 .load(url)
                 .into(imageView);
+    }
+
+    public static void loadCircleImage(ImageView imageView, String url) {
+        if (!TextUtils.isEmpty(url))
+        {
+            Glide.with(imageView.getContext())
+                    .load(url)
+                    .apply(RequestOptions.bitmapTransform(new CircleCrop()))
+                    .into(imageView);
+        }
     }
 }

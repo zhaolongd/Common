@@ -22,4 +22,5 @@ public interface HttpConfig {
     String USER_ARTICLE_LIST = BASE_URL + "/user_article/list/%d/json";
     //开眼视频api
     String KAIYAN_RECOMMEND = "http://baobab.kaiyanapp.com/api/v7/community/tab/rec"; //开眼视频推荐
+    String KAIYAN_ATTENTION = "http://baobab.kaiyanapp.com/api/v6/community/tab/follow"; //开眼视频关注
 }

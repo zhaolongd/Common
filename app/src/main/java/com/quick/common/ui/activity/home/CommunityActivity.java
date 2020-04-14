@@ -9,6 +9,7 @@ import androidx.viewpager.widget.ViewPager;
 import com.quick.common.R;
 import com.quick.common.app.BaseActivity;
 import com.quick.common.config.Config;
+import com.quick.common.ui.fragment.AttentionFragment;
 import com.quick.common.ui.fragment.RecommendFragment;
 import com.quick.common.utils.ScrollTop;
 import com.quick.common.utils.TabLayoutUtils;
@@ -53,7 +54,7 @@ public class CommunityActivity extends BaseActivity implements ScrollTop {
         mAdapter.setTitles(titles);
         mAdapter.setFragmentList(
                 RecommendFragment.create(),
-                RecommendFragment.create()
+                AttentionFragment.create()
         );
         vp.setAdapter(mAdapter);
         TabLayoutUtils.initTabLayout(titles, tl, vp, new SimpleCallback<Integer>() {

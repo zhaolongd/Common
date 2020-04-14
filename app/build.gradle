@@ -21,6 +21,11 @@ android {
             abiFilters 'armeabi-v7a', 'arm64-v8a', 'x86'
             // 还可以添加 'armeabi', 'x86','armeabi-v7a','arm64-v8a', 'x86_64', 'mips', 'mips64'
         }
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [moduleName: project.getName()]
+            }
+        }
     }
 
     buildTypes {
@@ -48,5 +53,8 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.0'
     implementation 'com.jakewharton:butterknife:10.2.1'
     annotationProcessor 'com.jakewharton:butterknife-compiler:10.2.1'
+    implementation 'com.alibaba:arouter-api:1.5.0'
+    annotationProcessor 'com.alibaba:arouter-compiler:1.2.2'
     implementation project(':core')
+    implementation project(':video')
 }
