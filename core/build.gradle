@@ -79,4 +79,5 @@ dependencies {
     api 'com.download.library:Downloader:4.1.2'// (可选)
     api 'org.greenrobot:eventbus:3.1.1'
     api 'com.github.goweii:ActionBarEx:3.2.4'
+    api 'com.gyf.immersionbar:immersionbar:3.0.0'
 }

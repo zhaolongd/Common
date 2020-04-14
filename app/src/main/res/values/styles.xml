@@ -7,6 +7,8 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
         <item name="android:windowBackground">@color/white</item>
+        <item name="windowNoTitle">true</item>
+        <item name="windowActionBar">false</item>
     </style>
 
     <style name="ActionBar">
@@ -28,6 +30,14 @@
         <item name="abc_rightIconPadding">13dp</item>
         <item name="abc_rightIconMarginRight">3dp</item>
         <item name="abc_rightTextColor">@color/basic_ui_action_bar_text</item>
+    </style>
+
+    <!--StartActivity Style 冷启动效果-->
+    <style name="AppTheme.Start">
+        <item name="android:windowBackground">@drawable/main_splash_start</item>
+        <item name="android:windowActionBar">false</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowFullscreen">true</item>
     </style>
 
 </resources>

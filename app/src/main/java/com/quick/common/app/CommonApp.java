@@ -4,6 +4,7 @@ import android.content.Context;
 
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.quick.common.R;
+import com.quick.common.ui.adapter.ScreenAutoAdapter;
 import com.quick.core.base.CoreApp;
 import com.quick.core.common.Config;
 import com.quick.core.rxhttp.RxHttpManager;
@@ -26,6 +27,7 @@ public class CommonApp extends CoreApp {
     @Override
     public void onCreate() {
         super.onCreate();
+        ScreenAutoAdapter.setup(getApp());
         RxHttpManager.init();
         if (Config.DEBUG) {
             ARouter.openLog(); // 开启日志

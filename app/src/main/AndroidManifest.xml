@@ -11,12 +11,14 @@
         android:networkSecurityConfig="@xml/network_security_config"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.activity.MainActivity">
+        <activity android:name=".ui.activity.SplashActivity"
+            android:theme="@style/AppTheme.Start">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".ui.activity.MainActivity"/>
         <activity android:name=".ui.activity.WebActivity" />
         <activity android:name=".ui.activity.home.SearchActivity"/>
         <activity android:name=".ui.activity.home.CommunityActivity"/>

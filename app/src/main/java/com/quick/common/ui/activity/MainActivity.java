@@ -46,8 +46,9 @@ public class MainActivity extends BaseActivity implements ViewPager.OnPageChange
     @BindView(R.id.tv_bb_square)
     TextView tvBbSquare;
 
-
     private FixedFragmentPagerAdapter mPagerAdapter;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
