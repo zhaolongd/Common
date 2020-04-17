@@ -21,6 +21,7 @@
     <color name="mine_blur_overlay">@color/background_mask</color>
     <color name="about_me_blur_overlay">@color/background_mask</color>
 
+
     <!--通用颜色-->
     <color name="main">#4282f4</color>
     <color name="assist">#3cdc86</color>
